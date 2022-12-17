@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Smart_ATM_SWArchitecture.iml" filepath="$PROJECT_DIR$/Smart_ATM_SWArchitecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Smart_Exchanger_SWArchitecture.iml" filepath="$PROJECT_DIR$/Smart_Exchanger_SWArchitecture.iml" />
     </modules>
   </component>
 </project>

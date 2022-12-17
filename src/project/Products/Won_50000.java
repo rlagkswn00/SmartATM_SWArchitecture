@@ -1,24 +1,37 @@
 package project.Products;
 
+
 //이어폰 객체
-public class Earphone implements IEarphone {
-    int volume;
-    String name;
-    public Earphone(int volume, String name) {
-        this.volume = volume;
-        this.name = name;
+public class Won_50000 implements Money {
+    int price;
+    String serialNum;
+    int size;
+    boolean isBill;
+
+    public Won_50000(String serialNum) {
+        this.price = 50000;
+        this.serialNum = serialNum;
+        this.size = 10;
+        this.isBill = true;
     }
 
     @Override
-    public void upVolume() {
-        this.volume++;
-        System.out.println(this.name + "현재 볼륨: " + this.volume);
-
+    public int getPrice() {
+        return price;
     }
 
     @Override
-    public void downVolume() {
-        this.volume--;
-        System.out.println(this.name + "현재 볼륨: " + this.volume);
+    public int getSize() {
+        return size;
+    }
+
+    @Override
+    public String getSerialNum() {
+        return serialNum;
+    }
+
+    @Override
+    public boolean getIsCash() {
+        return isBill;
     }
 }

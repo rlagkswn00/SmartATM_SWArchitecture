@@ -1,24 +1,36 @@
 package project.Products;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
 //핸드폰 객체
-public class Phone implements IPhone {
-    String phoneName;
-    public Phone(String phoneName){
-        this.phoneName = phoneName;
+public class Won implements Cash {
+    LinkedList<Money> moneyList = null;
+    String country;
+
+    public Won(LinkedList<Money> moneyList, String country){
+        this.moneyList = moneyList;
+        this.country = country;
+
     }
 
     @Override
-    public void getPhoneName() {
-        System.out.println("핸드폰 이름은: " + this.phoneName);
+    public int getTotal() {
+        int total=0;
+        for(Money i:moneyList){
+            total+=i.getPrice();
+        }
+        return total;
     }
 
     @Override
-    public void turnOn() {
-        System.out.println(phoneName + " 핸드폰이 켜졌습니다.");
+    public LinkedList<Money> getMoneyList() {
+        return moneyList;
     }
 
     @Override
-    public void turnOff() {
-        System.out.println(phoneName + " 핸드폰이 꺼졌습니다.");
+    public String getCountry() {
+        return country;
     }
 }

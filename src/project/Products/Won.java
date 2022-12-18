@@ -9,10 +9,20 @@ public class Won implements Cash {
     LinkedList<Money> moneyList = null;
     String country;
 
+
     public Won(LinkedList<Money> moneyList, String country){
         this.moneyList = moneyList;
         this.country = country;
 
+    }
+
+    @Override
+    public int getCnt(int amount) {
+        int cnt = 0;
+        for(Money i:moneyList){
+            if(i.getPrice() == amount) cnt++;
+        }
+        return cnt;
     }
 
     @Override

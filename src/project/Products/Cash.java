@@ -7,4 +7,6 @@ public interface Cash {
     public LinkedList<Money> getMoneyList();
     public String getCountry();
     public int getTotal();
+    public int getCnt(int amount);
+
 }

@@ -4,18 +4,30 @@ package project.Products;
 //이어폰 객체
 public class Won_10 implements Money {
     int price;
-    String serialNum;
     int size;
+    int count;
+    boolean isValid;
     boolean isBill;
 
-    public Won_10(String serialNum) {
+    public Won_10(int count) {
         this.price = 10;
-        this.serialNum = serialNum;
+        this.count = count;
         this.size = 1;
         this.isBill = false;
     }
 
+    @Override
+    public void setValid(boolean valid) {
+        this.isValid = valid;
+    }
 
+    public void setSize(int size){
+        this.size=size;
+    }
+    @Override
+    public boolean getIsValid() {
+        return isValid;
+    }
     @Override
     public int getPrice() {
         return price;
@@ -27,12 +39,7 @@ public class Won_10 implements Money {
     }
 
     @Override
-    public String getSerialNum() {
-        return serialNum;
-    }
-
-    @Override
-    public boolean getIsCash() {
+    public boolean getIsBill() {
         return isBill;
     }
 }

@@ -10,5 +10,5 @@ public interface MoneyF {
 
     public Cash createCash();
 
-    public Money createMoney(int amount, String serialNum);
+    public Money createMoney(int amount, int count);
 }

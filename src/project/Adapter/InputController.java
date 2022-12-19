@@ -22,7 +22,7 @@ public class InputController {
 
         } else {
             returnCash();
-
+            return null;
         }
     }
 

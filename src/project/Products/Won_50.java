@@ -27,7 +27,15 @@ public class Won_50 implements Money {
     public boolean getIsValid() {
         return isValid;
     }
+    @Override
+    public int getMoneyTotal() {
+        return price * count;
+    }
 
+    @Override
+    public int getCount() {
+        return count;
+    }
     @Override
     public int getPrice() {
         return price;

@@ -10,7 +10,7 @@ public class Won_1000 implements Money {
     boolean isBill;
 
     public Won_1000(int count) {
-        this.price = 10;
+        this.price = 1000;
         this.count = count;
         this.size = 5;
         this.isBill = false;
@@ -22,6 +22,14 @@ public class Won_1000 implements Money {
     @Override
     public void setSize(int size){
         this.size=size;
+    }
+    @Override
+    public int getMoneyTotal() {
+        return price * count;
+    }
+    @Override
+    public int getCount() {
+        return count;
     }
     @Override
     public boolean getIsValid() {

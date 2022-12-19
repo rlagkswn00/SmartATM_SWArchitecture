@@ -34,6 +34,16 @@ public class Won_10 implements Money {
     }
 
     @Override
+    public int getCount() {
+        return count;
+    }
+
+    @Override
+    public int getMoneyTotal() {
+        return price * count;
+    }
+
+    @Override
     public int getSize() {
         return size;
     }

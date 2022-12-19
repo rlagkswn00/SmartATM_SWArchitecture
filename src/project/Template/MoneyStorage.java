@@ -11,7 +11,6 @@ public class MoneyStorage implements StorageController {
     Cash storage_cash;
 
     public MoneyStorage(Cash storage_cash) {
-
         this.storage_cash = storage_cash;
     }
 

@@ -123,6 +123,7 @@ public class default_gui extends JFrame implements ActionListener {
             default_gui newGui = new default_gui();
         } else {
             //돈 버튼 클릭
+
             changeInputAmout(btn.getText());
         }
     }

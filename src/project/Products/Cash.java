@@ -8,5 +8,4 @@ public interface Cash {
     public String getCountry();
     public int getTotal();
     public int getCnt(int amount);
-
 }

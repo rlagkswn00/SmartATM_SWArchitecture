@@ -28,10 +28,13 @@ public class Won implements Cash {
     @Override
     public int getTotal() {
         int total=0;
-        for(Money i:moneyList){
-            total+=i.getPrice();
+        if(!moneyList.isEmpty()){
+            for(Money i:moneyList){
+                total+=i.getMoneyTotal();
+            }
+            return total;
         }
-        return total;
+        return 0;
     }
 
     @Override

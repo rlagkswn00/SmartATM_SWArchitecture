@@ -1,6 +1,7 @@
 package project.Template;
 
 import project.Products.Cash;
+import project.Products.Money;
 import project.Products.Won;
 
 import java.nio.file.Paths;
@@ -12,6 +13,15 @@ public class MoneyStorage implements StorageController {
 
     public MoneyStorage(Cash storage_cash) {
         this.storage_cash = storage_cash;
+    }
+
+    @Override
+    public Cash updateStorage(Cash inputCash, Cash outputCash) {
+        System.out.println("돈통 업데이트 현황");
+        for(int i = 0 ; i < 8 ; i++){
+            System.out.println(storage_cash.getMoneyList().get(i).getPrice()+ "원권 " + storage_cash.getCnt(storage_cash.getMoneyList().get(i).getPrice()) + "장");
+        }
+        return this.storage_cash;
     }
 
     @Override

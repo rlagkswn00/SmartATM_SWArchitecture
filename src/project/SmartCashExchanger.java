@@ -11,13 +11,14 @@ import project.Template.WonExchange;
 
 import java.util.Scanner;
 
-public class ATM {
+public class SmartCashExchanger {
     private static MoneyF moneyFactory;
     private static MoneyStorage moneyStorage;
     private static WonExchange wonExchange;
     private static InputController inputController;
+    private static OutputController outputController;
     private static default_gui gui;
-    public ATM() {
+    public SmartCashExchanger() {
         moneyFactory = new KoreaFactory();
         Cash storageCash = moneyFactory.createCash();
         for (int i = 0; i < 10; i++) {
@@ -33,33 +34,49 @@ public class ATM {
         moneyStorage = new MoneyStorage(storageCash);
         wonExchange = new WonExchange();
         inputController = new InputController();
+        outputController = new OutputController();
         gui = new default_gui();
     }
 
     public static void main(String[] args) {
-        ATM atm = new ATM();
+        SmartCashExchanger smartCashExchanger = new SmartCashExchanger();
 
         // 스크린의 버튼을 눌렀을 때 inputCash 실행하는 코드 필요함
         // 아래의 함수를 버튼을 눌렀을 때 버튼 클릭 이벤트에 할당해야 함
-        Cash input_won = moneyFactory.createCash();
-        Scanner s = new Scanner(System.in);
 
-        //임시 인풋 요청이 들어옴.
-        String input = s.nextLine();
-        Money inputMoney = moneyFactory.createMoney(Integer.parseInt(input),10);
-        System.out.println(inputMoney.getMoneyTotal());
+        while(true){
+            Cash inputCash = moneyFactory.createCash();
+            Money inputMoney = null;
 
-        // InputCash()를 실행하면서 Real, Fake에 따른 입금 금액 계산
-        inputMoney = inputController.InputCash(inputMoney);
-        System.out.println(input_won.getTotal());
-        //확인된 지폐 임시 입력 50000원권 10장 투입함.
-        input_won.getMoneyList().add(inputMoney);
-        System.out.println(input_won.getTotal());
+            while(true){
+                System.out.print("투입할 돈을 입력하시오(입력완료는 end): ");
+                Scanner s = new Scanner(System.in);
+                String input = s.nextLine();
 
-        Cash output = wonExchange.ReturnOutput(wonExchange.getConbinationInput(moneyStorage, input_won));
+                if(input.equals("end")){
+                    break;
+                }else if(input.equals("exit")){
+                    System.out.println("ATM 종료.");
+                    System.exit(0);
 
-        //교환 후 출력
-        System.out.println(output.getTotal());
+                }else{
+                    // InputCash()를 실행하면서 Real, Fake에 따른 입금 금액 계산
+                    inputMoney = inputController.InputCash(moneyFactory.createMoney(Integer.parseInt(input),1));
+
+                    inputCash.getMoneyList().add(inputMoney);
+                }
+            }
+
+            //확인된 지페 exchange함.
+            Cash combinationOfOutput =wonExchange.getConbinationInput(moneyStorage, inputCash);
+
+            //storage update함
+            moneyStorage.updateStorage(inputCash,combinationOfOutput);
+
+            //교환 후 출력
+            outputController.output(combinationOfOutput);
+        }
+
     }
 
 }

@@ -2,6 +2,8 @@ package project.GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.net.http.WebSocket;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -10,13 +12,15 @@ public class default_gui extends JFrame implements ActionListener {
     JFrame mainFrame;
     private JLabel inputAmountLabel;
     private JPanel uiScreenPanel;
+    private JPanel moneyOutletPanel;
     JButton startButton;
+
 
     public default_gui(){
         //cardLayout = new CardLayout(10,10);
         uiScreenPanel = new JPanel();
 
-        mainFrame= new JFrame(); //f라는 Frame 생성
+        mainFrame= new JFrame();
 
         mainFrame.setTitle("스마트 지폐교환기"); //창제목을 설정
         mainFrame.setBounds(150, 50, 900, 700); //창크기를 설정
@@ -26,22 +30,22 @@ public class default_gui extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton cashButton50000 = new JButton("50000");
         cashButton50000.setBounds(50,500, 70, 50);
-        cashButton50000.addActionListener(this);
+        cashButton50000.addActionListener(guiListener);
         mainFrame.add(cashButton50000);
 
         JButton cashButton10000 = new JButton("10000");
         cashButton10000.setBounds(125,500, 70, 50);
-        cashButton10000.addActionListener(this);
+        cashButton10000.addActionListener(guiListener);
         mainFrame.add(cashButton10000);
 
         JButton cashButton5000 = new JButton("5000");
         cashButton5000.setBounds(200,500, 70, 50);
-        cashButton5000.addActionListener(this);
+        cashButton5000.addActionListener(guiListener);
         mainFrame.add(cashButton5000);
 
         JButton cashButton1000 = new JButton("1000");
         cashButton1000.setBounds(275,500, 70, 50);
-        cashButton1000.addActionListener(this);
+        cashButton1000.addActionListener(guiListener);
         mainFrame.add(cashButton1000);
 
         JPanel machinePanel = new JPanel();
@@ -52,7 +56,7 @@ public class default_gui extends JFrame implements ActionListener {
         machinePanel.setBorder(new LineBorder(Color.black,10,true));
 
 
-        JPanel moneyOutletPanel = new JPanel();
+        moneyOutletPanel = new JPanel();
         moneyOutletPanel.setBounds(50,280,500,100);
         moneyOutletPanel.setBackground(Color.gray);
         machinePanel.add(moneyOutletPanel);
@@ -80,7 +84,7 @@ public class default_gui extends JFrame implements ActionListener {
         resetButton.setText("reset");
         resetButton.setBounds(700,300,80,80);
         resetButton.setBorder(new LineBorder(Color.black,2,true));
-        resetButton.addActionListener(this);
+        resetButton.addActionListener(guiListener);
         machinePanel.add(resetButton);
 
         mainFrame.add(machinePanel);
@@ -97,23 +101,27 @@ public class default_gui extends JFrame implements ActionListener {
         startButton.setText("교환하기");
         startButton.setBackground(Color.white);
         startButton.setBounds(200, 100, 100, 40);
-        startButton.addActionListener(this);
+        startButton.addActionListener(guiListener);
         uiScreenPanel.add(startButton);
+
     }
 
     //버튼 누른 것 텍스트라벨에 반영
-    public void changeInputAmout(String newInput){
+/*    public void changeInputAmout(String newInput){
         int prevAmount = Integer.parseInt(inputAmountLabel.getText());
         int currAmount = prevAmount + Integer.parseInt(newInput);
 
         inputAmountLabel.setText(String.valueOf(currAmount));
 
-    }
+    }*/
+
+
+    ActionListener guiListener = new GUIActionListener(this);
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton btn = (JButton) e.getSource();
-        if(btn.getText().equals("교환하기")){
+        /*if(btn.getText().equals("교환하기")){
             mainFrame.dispose();
             // 교환 화면으로 전환
             gui_exchange exchangeGui = new gui_exchange(inputAmountLabel.getText());
@@ -121,12 +129,15 @@ public class default_gui extends JFrame implements ActionListener {
             //리셋
             mainFrame.dispose();
             default_gui newGui = new default_gui();
+            JPanel returnForReset = newGui.getMoneyOutletPanel();
+            //여기에 돈 반환코드 추가
         } else {
             //돈 버튼 클릭
-
-            changeInputAmout(btn.getText());
-        }
+            //changeInputAmout(btn.getText());
+        }*/
     }
+
+
 
     public JPanel getUIScreenPanel(){
         return uiScreenPanel;
@@ -142,5 +153,9 @@ public class default_gui extends JFrame implements ActionListener {
 
     public JLabel getInputAmountLabel(){
         return inputAmountLabel;
+    }
+
+    public JPanel getMoneyOutletPanel(){
+        return moneyOutletPanel;
     }
 }

@@ -17,6 +17,16 @@ public class Won implements Cash {
     }
 
     @Override
+    public Money getMoneyFromMoneyList(int amount) {
+        Money returnMoney = null;
+        for(Money i: moneyList){
+            if(i.getPrice() == amount)
+                returnMoney = i;
+        }
+        return returnMoney;
+    }
+
+    @Override
     public int getCnt(int amount) {
         int cnt = 0;
         for(Money i:moneyList){

@@ -3,7 +3,7 @@ package project.Template;
 import project.Facotries.KoreaFactory;
 import project.Facotries.MoneyF;
 import project.Products.Cash;
-import project.Products.Money;
+import project.Storage.MoneyStorage;
 
 import java.util.Scanner;
 

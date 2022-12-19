@@ -1,12 +1,8 @@
-package project.Template;
+package project.Storage;
 
 import project.Facotries.KoreaFactory;
 import project.Products.Cash;
 import project.Products.Money;
-import project.Products.Won;
-
-import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class MoneyStorage implements StorageController {
 

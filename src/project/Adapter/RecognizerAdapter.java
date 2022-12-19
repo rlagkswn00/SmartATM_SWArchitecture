@@ -1,5 +1,4 @@
 package project.Adapter;
-
 import project.Products.Money;
 
 public class RecognizerAdapter implements Validity {
@@ -8,7 +7,6 @@ public class RecognizerAdapter implements Validity {
     public RecognizerAdapter(RecognizerController rc) {
         recognizerController = rc;
     }
-
     @Override
     public void checkValidity(Money inputMoney) {
         int val = recognizerController.checkValidity(inputMoney);

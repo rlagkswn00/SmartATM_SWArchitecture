@@ -6,7 +6,7 @@ import project.Facotries.MoneyF;
 import project.GUI.default_gui;
 import project.Products.Cash;
 import project.Products.Money;
-import project.Template.MoneyStorage;
+import project.Storage.MoneyStorage;
 import project.Template.WonExchange;
 
 import java.util.Scanner;

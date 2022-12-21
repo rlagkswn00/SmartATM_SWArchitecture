@@ -1,10 +1,9 @@
 package project.Facotries;
 
 import project.Products.*;
-
 import java.util.LinkedList;
 
-public class KoreaFactory implements MoneyF {
+public class KoreaFactory implements MoneyFactory {
     private String country;
 
     public KoreaFactory() {

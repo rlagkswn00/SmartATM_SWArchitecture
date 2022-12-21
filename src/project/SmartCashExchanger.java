@@ -2,7 +2,7 @@ package project;
 
 import project.Adapter.*;
 import project.Facotries.KoreaFactory;
-import project.Facotries.MoneyF;
+import project.Facotries.MoneyFactory;
 import project.GUI.default_gui;
 import project.Products.Cash;
 import project.Products.Money;
@@ -12,7 +12,7 @@ import project.Template.WonExchange;
 import java.util.Scanner;
 
 public class SmartCashExchanger {
-    private static MoneyF moneyFactory;
+    private static MoneyFactory moneyFactory;
     private static MoneyStorage moneyStorage;
     private static WonExchange wonExchange;
     private static InputController inputController;
@@ -35,7 +35,7 @@ public class SmartCashExchanger {
         wonExchange = new WonExchange();
         inputController = new InputController();
         outputController = new OutputController();
-        gui = new default_gui();
+//        gui = new default_gui();
     }
 
     public static void main(String[] args) {
@@ -49,14 +49,14 @@ public class SmartCashExchanger {
             Money inputMoney = null;
 
             while (true) {
-                System.out.print("투입할 돈을 입력하시오(입력완료는 end): ");
+                System.out.print("투입할 돈을 입력하시오(입력완료는 end, 교환기 종료는 exit): ");
                 Scanner s = new Scanner(System.in);
                 String input = s.nextLine();
 
                 if (input.equals("end")) {
                     break;
                 } else if (input.equals("exit")) {
-                    System.out.println("ATM 종료.");
+                    System.out.println("교환기 종료.");
                     System.exit(0);
 
                 } else {

@@ -1,7 +1,7 @@
 package project.Template;
 
 import project.Facotries.KoreaFactory;
-import project.Facotries.MoneyF;
+import project.Facotries.MoneyFactory;
 import project.Products.Cash;
 import project.Storage.MoneyStorage;
 
@@ -15,7 +15,7 @@ public class WonExchange extends CashExchange {
         Cash combinationForOutput;
         while (true) {
             //조합값으로 받은 돈 생성
-            MoneyF koreaFactory = new KoreaFactory();
+            MoneyFactory koreaFactory = new KoreaFactory();
             combinationForOutput = koreaFactory.createCash();
             System.out.println("투입 총액: " + inputCash.getTotal());
             System.out.print("원하는 교환 조합을 입력하시오. (1 2 0 3 1 1 2 2): ");
@@ -48,7 +48,6 @@ public class WonExchange extends CashExchange {
             }
                 break;
         }
-
 
         return combinationForOutput;
     }

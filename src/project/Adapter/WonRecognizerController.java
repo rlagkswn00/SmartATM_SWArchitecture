@@ -8,74 +8,72 @@ public class WonRecognizerController implements RecognizerController {
 
     @Override
     public int checkValidity(Money inputMoney) {
-        Won_10 won_10 = new Won_10(1);
-        Won_50 won_50 = new Won_50(1);
-        Won_100 won_100 = new Won_100(1);
-        Won_500 won_500 = new Won_500(1);
-        Won_1000 won_1000 = new Won_1000(1);
-        Won_5000 won_5000 = new Won_5000(1);
-        Won_10000 won_10000 = new Won_10000(1);
-        Won_50000 won_50000 = new Won_50000(1);
-
-        switch(inputMoney.getPrice()) {
-            case 10:
-                if(inputMoney.getSize() == won_10.getSize()) {
+        switch (inputMoney.getPrice()) {
+            case 10: {
+                if (inputMoney.getSize() == 1) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 50:
-                if(inputMoney.getSize() == won_50.getSize()) {
+            }
+            case 50: {
+                if (inputMoney.getSize() == 2) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 100:
-                if(inputMoney.getSize() == won_100.getSize()) {
+            }
+            case 100: {
+                if (inputMoney.getSize() == 3) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 500:
-                if(inputMoney.getSize() == won_500.getSize()) {
+            }
+            case 500:{
+                if (inputMoney.getSize() == 4) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 1000:
-                if(inputMoney.getSize() == won_1000.getSize()) {
+            }
+            case 1000:{
+                if (inputMoney.getSize() == 5) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 5000:
-                if(inputMoney.getSize() == won_5000.getSize()) {
+            }
+            case 5000:{
+                if (inputMoney.getSize() == 6) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 10000:
-                if(inputMoney.getSize() == won_10000.getSize()) {
+            }
+            case 10000:{
+                if (inputMoney.getSize() == 7) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
-            case 50000:
-                if(inputMoney.getSize() == won_50000.getSize()) {
+            }
+            case 50000:{
+                if (inputMoney.getSize() == 8) {
                     this.validity = 1;
                 } else {
                     this.validity = 0;
                 }
                 break;
+            }
         }
-
         System.out.println("Bill is recognized");
         return this.validity;
     }

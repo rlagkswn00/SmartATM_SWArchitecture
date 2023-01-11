@@ -17,8 +17,6 @@ public class Main{
         default_gui homeGui = new default_gui();
     }
 
-
-
     public static void changeInputAmout(String newInput, JLabel inputAmountLabel ){
         int prevAmount = Integer.parseInt(inputAmountLabel.getText());
         int currAmount = prevAmount + Integer.parseInt(newInput);
@@ -32,7 +30,4 @@ public class Main{
 
 
     }
-
-
-
 }

@@ -10,7 +10,6 @@ public class KoreaFactory implements MoneyFactory {
         this.country = "Korea";
 
     }
-
     public Cash createCash() {
         return new Won(new LinkedList<Money>(), country);
     }

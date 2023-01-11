@@ -42,8 +42,7 @@ public class MoneyStorage implements StorageController {
     }
 
     @Override
-    public boolean CheckAmount(Cash c) //d.totalprice는 앞 단계에서 계산한 총액
-    {
+    public boolean CheckAmount(Cash c){
         if (c.getTotal() <= this.storage_cash.getTotal())
             return true;
         else {

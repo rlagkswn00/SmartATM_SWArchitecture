@@ -1,7 +1,7 @@
 package project.Products;
 
 
-//이어폰 객체
+
 public class Won_500 implements Money {
     int price;
     int size;

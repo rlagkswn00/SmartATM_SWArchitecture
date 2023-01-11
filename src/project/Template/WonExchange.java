@@ -10,8 +10,6 @@ import java.util.Scanner;
 public class WonExchange extends CashExchange {
     @Override
     public Cash getConbinationInput(MoneyStorage ms, Cash inputCash) {
-        //event e를 받아서(gui에서 유저가 조합을 입력하면), 그 조합을 int[] t_arr로 반환하는 과정 추가해야 함.
-        //t_arr는 큰 단위 순서대로 숫자 들어가있다고 가정(ex.10000원권 2장,1000원권 5장 = 0205)
         Cash combinationForOutput;
         while (true) {
             //조합값으로 받은 돈 생성
